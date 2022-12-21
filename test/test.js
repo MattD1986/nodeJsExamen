@@ -1,31 +1,30 @@
-const test = require('node:test')
-const assert = require('node:assert');
 const { layOutPublisher, descriptionCheck } = require('../models/comic');
 const { User } = require('../models/user');
 
 
-test('test layoutPublisher function', (t) => {
+test('test layoutPublisher function', () => {
     const input = "DePuiS"
-    assert.strictEqual(layOutPublisher(input), "Depuis")
+    expect(layOutPublisher(input)).toBe("Depuis")
 });
 
 
-test('test descriptionCheck function empty input', (t) => {
+test('test descriptionCheck with no input', () => {
     const inputEmpty = ""
-    assert.strictEqual(descriptionCheck(inputEmpty),"no description provided yet")
-
+    expect(descriptionCheck(inputEmpty)).toBe("no description provided yet")
 })
 
-test('test descriptionCheck function valid input', (t) => {
+
+test('test descriptionCheck with text input', () => {
     const inputText = "a nice short story"
-    assert.strictEqual(descriptionCheck(inputText),"a nice short story")
+    expect(descriptionCheck(inputText)).toBe("a nice short story")
 })
 
 
-test('test validationToken is generated', (t) => {
+test('test validationToken is generated', () => {
     const user = new User({username: 'Matthew', email: 'matt@mail.com', administrator: true, moderator: true})
     const token = user.generateAuthentificationToken()
-    assert.ok(token)
+
+    expect(token).toBeTruthy()
 })
 
 

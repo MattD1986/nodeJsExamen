@@ -1,4 +1,3 @@
 {
-    "jwtPrivateKey": "stripApplicatie_jwtPrivateKey",
-    "database": "mongodb://127.0.0.1/comicsAPI"
+    "jwtPrivateKey": "stripApplicatie_jwtPrivateKey"
 }

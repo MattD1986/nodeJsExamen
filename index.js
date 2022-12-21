@@ -4,7 +4,6 @@ const mongoose = require('mongoose')
 const express = require('express')
 const app = express()
 const config = require('config')
-const helmet = require('helmet')
 
 const authors = require('./routes/authors')
 const series = require('./routes/series')
@@ -20,7 +19,7 @@ if(!config.get('jwtPrivateKey')){
     process.exit(1)
   }
 
-mongoose.connect(config.get('database'))
+mongoose.connect('mongodb://127.0.0.1/comicsAPI')
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to mongodb: ', err));
 
