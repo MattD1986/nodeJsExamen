@@ -1,0 +1,57 @@
+### REEKSEN CALLS ###
+@base_URL =http://localhost:3000/api/series
+@authTokenMod=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EyZDNkZTQ4N2RjYjcyNGI4MTQ2NTAiLCJhZG1pbmlzdHJhdG9yIjpmYWxzZSwibW9kZXJhdG9yIjp0cnVlLCJpYXQiOjE2NzE2MTU0NTR9.vidjxb9OFZXbbEV35517ZgSOL-M7gJkekw84HIBWZ44
+@authTokenAdmin=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EyZDQ1ZTQ4N2RjYjcyNGI4MTQ2NTMiLCJhZG1pbmlzdHJhdG9yIjp0cnVlLCJtb2RlcmF0b3IiOmZhbHNlLCJpYXQiOjE2NzE2MTU1ODJ9.qjmtQhPXYRqacDuxrA9ONUdC4kCk47xnEHO7nb4MJJA
+@authTokenNone=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EyZDQ5ZTQ4N2RjYjcyNGI4MTQ2NTYiLCJhZG1pbmlzdHJhdG9yIjpmYWxzZSwibW9kZXJhdG9yIjpmYWxzZSwiaWF0IjoxNjcxNjE1NjQ2fQ.r0wxxhhj2DeoZCuULrHyV9XzMnrV8k0dCAtxvKuwaWQ
+@uitgever=standaard uitgeverij
+@auteur=Merho
+@reeks=aria
+@object1=63a2d70f7063753037f712ae
+@object2=63a2d7807063753037f712b5
+
+get {{base_URL}}
+
+###
+
+get {{base_URL}}/{{object1}}
+Content-Type: application/json
+
+###
+
+get {{base_URL}}/name/{{reeks}}
+Content-Type: application/json
+
+###
+
+get {{base_URL}}/author/{{auteur}}
+Content-Type: application/json
+
+###
+
+post {{base_URL}}
+Content-Type: application/json
+x-auth-token: {{authTokenMod}}
+
+{
+    "name":"Suske en Wiske",
+    "yearPublished":"1945",
+    "authorId":"63a2d5e238d7871a80d8b6da"
+}
+
+###
+
+put {{base_URL}}/{{object1}}
+Content-Type: application/json
+x-auth-token: {{authTokenMod}}
+
+{
+    "name":"Aria",
+    "yearPublished":"1980",
+    "authorId":"63a2d52f38d7871a80d8b6d3"
+}
+
+###
+
+delete {{base_URL}}/{{object2}}
+Content-Type: application/json
+x-auth-token: {{authTokenAdmin}}
