@@ -20,7 +20,7 @@ if(!config.get('jwtPrivateKey')){
     process.exit(1)
   }
 
-mongoose.connect('mongodb://localhost/comicsAPI')
+mongoose.connect(config.get('database'))
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to mongodb: ', err));
 
