@@ -25,9 +25,6 @@ mongoose.connect(config.get('database'))
     .catch(err => console.error('Could not connect to mongodb: ', err));
 
 app.use(express.json());
-//uitbreiden van de beveiliging
-//verwijdert o.a. de X-powered-by Express uit de header (avoid fingerprinting: avoid identification of type and version of the web server )
-app.use(helmet());
 
 app.use('/api/authors', authors);
 app.use('/api/series', series);
