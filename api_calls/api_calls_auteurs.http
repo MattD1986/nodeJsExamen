@@ -1,10 +1,12 @@
 # AUTEURS CALLS #
-@base_URL =http://localhost:3000/api/authors
-@authTokenMod=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EyZDNkZTQ4N2RjYjcyNGI4MTQ2NTAiLCJhZG1pbmlzdHJhdG9yIjpmYWxzZSwibW9kZXJhdG9yIjp0cnVlLCJpYXQiOjE2NzE2MTU0NTR9.vidjxb9OFZXbbEV35517ZgSOL-M7gJkekw84HIBWZ44
-@authTokenAdmin=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EyZDQ1ZTQ4N2RjYjcyNGI4MTQ2NTMiLCJhZG1pbmlzdHJhdG9yIjp0cnVlLCJtb2RlcmF0b3IiOmZhbHNlLCJpYXQiOjE2NzE2MTU1ODJ9.qjmtQhPXYRqacDuxrA9ONUdC4kCk47xnEHO7nb4MJJA
-@authTokenNone=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EyZDQ5ZTQ4N2RjYjcyNGI4MTQ2NTYiLCJhZG1pbmlzdHJhdG9yIjpmYWxzZSwibW9kZXJhdG9yIjpmYWxzZSwiaWF0IjoxNjcxNjE1NjQ2fQ.r0wxxhhj2DeoZCuULrHyV9XzMnrV8k0dCAtxvKuwaWQ
-@objId1=63a2d52f38d7871a80d8b6d3
-@objId2=63a2d54d38d7871a80d8b6d5
+@base_URL =http://35.241.172.229:3000/api/authors
+@authTokenMod=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EyZmFhMmVkM2QwMDBiZGE4ODUyYmIiLCJhZG1pbmlzdHJhdG9yIjpmYWxzZSwibW9kZXJhdG9yIjp0cnVlLCJpYXQiOjE2NzE2MjUzNzh9._eG5JnN87xm4QBAHYcRaWs3noUowx4AoOF5sgwnfdbY
+@authTokenAdmin=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EyZmE4MWVkM2QwMDBiZGE4ODUyYjkiLCJhZG1pbmlzdHJhdG9yIjp0cnVlLCJtb2RlcmF0b3IiOnRydWUsImlhdCI6MTY3MTYyNTM0NX0.VXXTjm7OfmqQl89vNkYJZozdSRQi_DYEsvEQTfnWPR4
+@authTokenNone=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2EyZmFiZWVkM2QwMDBiZGE4ODUyYmQiLCJhZG1pbmlzdHJhdG9yIjpmYWxzZSwibW9kZXJhdG9yIjpmYWxzZSwiaWF0IjoxNjcxNjI1NDA3fQ._kCcoqnS-EzT9HkBZWb0WpumN8GYBuOYt9dzfPlt0Y4
+//willy Vandersteen
+@objId1=63a2fb1ded3d000bda8852bf
+//michel Weyland
+@objId2=63a2fb71ed3d000bda8852c1
 
 
 get {{base_URL}}
@@ -21,13 +23,13 @@ Content-Type: application/json
 x-auth-token: {{authTokenAdmin}}
 
 {
-    "name":"Willy Vandersteen",
-    "dateOfBirth":"15/02/1913"
+    "name":"Michel Weyland",
+    "dateOfBirth":"19/08/1974"
 }
 
 ###
 
-put {{base_URL}}/{{objId1}}
+put {{base_URL}}/{{objId2}}
 Content-Type: application/json
 x-auth-token: {{authTokenMod}}
 

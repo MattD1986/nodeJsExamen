@@ -12,8 +12,10 @@ router.post('/', async (req, res) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
-    //via try/catch om error 11000 (duplicate key) op te vangen, zodat app niet crashed
-    try {
+    const username = await User.findOne({username: req.body.username})
+    const email = await User.findOne({email: req.body.email})
+
+    if (username || email) return res.status(400).send('A user with this username or email already exists')
         currentUser = new User(_.pick(req.body, ['username', 'email', 'password', 'administrator', 'moderator']));
 
         const salt = await bcrypt.genSalt(10);
@@ -26,9 +28,6 @@ router.post('/', async (req, res) => {
 
         //toevoegen authentificatieToken aan de header
         res.header('x-auth-token', token).send(_.pick(currentUser, ['_id', 'username', 'email', 'administrator', 'moderator']));
-    } catch (error) {
-        return res.status(400).send('A user with this username is already registered')
-    }
 });
 
 router.get('/me', auth, async (req, res) => {

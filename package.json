@@ -19,5 +19,8 @@
     "mongoose": "^6.8.1",
     "prettier": "^2.8.0",
     "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "supertest": "^6.3.3"
   }
 }

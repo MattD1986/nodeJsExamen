@@ -19,7 +19,7 @@ if(!config.get('jwtPrivateKey')){
     process.exit(1)
   }
 
-mongoose.connect('mongodb://127.0.0.1/comicsAPI')
+mongoose.connect(config.get('db'))
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to mongodb: ', err));
 
@@ -32,4 +32,7 @@ app.use('/api/users', users)
 app.use('/api/auth', auth);
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Listening on port n° ${port}..`));
+const appServer = app.listen(port, () => console.log(`Listening on port n° ${port}..`));
+
+
+module.exports = appServer
